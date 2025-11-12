@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Coordinate Calculator</title>
+    <script src="coords.js" defer></script>
+    <style>
+        body, html {
+            height: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div style="width:100%; background:#e9f5ff; padding:0rem; box-sizing:border-box;">
+        <h1 style="margin:0; font-size:1.25rem;">Coordinates Calculator</h1>
+        <form>
+            <table>
+                <tr>
+                    <td>
+                        <label for="overworld">Overworld</label>
+                    </td>
+                    <td>
+                        <input type="text" id="overworld" name="overworld"  />
+                    </td>
+                    <td>
+                        <div id="overworldt"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="nether">Nether</label>
+                    </td>
+                    <td>
+
+                        <input type="text" id="nether" name="nether" />
+                    </td>
+                    <td>
+                        <div id="nethert"></div>
+                    </td>
+
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div style="display:flex; gap:0rem; margin-top:0rem;height: 100%;" >
+        <div style="flex:1; background:#f7f7f7; padding:0rem; box-sizing:border-box;">
+            <iframe id="omap" src="about:blank" style="width:100%; height:100% ; border:none;"></iframe>
+        </div>
+        <div style="flex:1; background:#f7f7f7; padding:0rem; box-sizing:border-box;">
+            <iframe id="nmap" src="about:blank" style="width:100%; height:100% ; border:none;"></iframe>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
