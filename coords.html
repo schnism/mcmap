@@ -7,7 +7,8 @@
     <title>Coordinate Calculator</title>
     <script src="coords.js" defer></script>
     <style>
-        body, html {
+        body,
+        html {
             height: 100%;
         }
     </style>
@@ -15,7 +16,6 @@
 </head>
 
 <body>
-
     <div style="width:100%; background:#e9f5ff; padding:0rem; box-sizing:border-box;">
         <h1 style="margin:0; font-size:1.25rem;">Coordinates Calculator</h1>
         <form>
@@ -36,8 +36,7 @@
                         <label for="nether">Nether</label>
                     </td>
                     <td>
-
-                        <input type="text" id="nether" name="nether" value="0 64 0"/>
+                        <input type="text" id="nether" name="nether" value="0 64 0" />
                     </td>
                     <td>
                         <div id="nethert"></div>
@@ -48,12 +47,14 @@
         </form>
     </div>
 
-    <div style="display:flex; gap:0rem; margin-top:0rem;height: 100%;" >
+    <div style="display:flex; gap:0rem; margin-top:0rem;height: 100%;">
         <div style="flex:1; background:#f7f7f7; padding:0rem; box-sizing:border-box;">
-            <iframe id="omap" src="https://maps.schnism.net/#overworld:-259:20:4:348:0:0:0:1:flat" style="width:100%; height:100% ; border:none;"></iframe>
+            <iframe id="omap" src="https://maps.schnism.net/#overworld:-259:20:4:348:0:0:0:1:flat"
+                style="width:100%; height:100% ; border:none;" allow="clipboard-write"></iframe>
         </div>
         <div style="flex:1; background:#f7f7f7; padding:0rem; box-sizing:border-box;">
-            <iframe id="nmap" src="https://maps.schnism.net/#nether:-41:56:23:47:0:0:0:1:flat" style="width:100%; height:100% ; border:none;"></iframe>
+            <iframe id="nmap" src="https://maps.schnism.net/#nether:-41:56:23:47:0:0:0:1:flat"
+                style="width:100%; height:100% ; border:none;" allow="clipboard-write"></iframe>
         </div>
     </div>
 

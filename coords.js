@@ -7,16 +7,24 @@ function handleTextChange(event) {
 
     try {
 
-	var nx,ny,nz,ox,oy,oz;
+        var nx, ny, nz, ox, oy, oz;
 
-        coords = value.match(/([-\d]+)[^-\d]+([-\d]+)[^-\d]+([-\d]+)/);
+        var coords = value.match(/([-\.\d]+)[^-\.\d]+([-\.\d]+)[^-\.\d]+([-\.\d]+)/);
+        if (coords === null) {
+            coords = value.match(/([-\.\d]+)[^-\.\d]+([-\.\d]+)/);
+            coords[3] = coords[2];
+            coords[2] = 64;
+            
+        }
+
+
         console.log(coords);
         console.log(mode);
 
         if (mode === 'nether') {
-            nx = coords[1];
-            ny = coords[2];
-            nz = coords[3];
+            nx = Math.round(coords[1]);
+            ny = Math.round(coords[2]);
+            nz = Math.round(coords[3]);
 
             ox = Math.round(nx * 8);
             oy = ny;
@@ -29,9 +37,9 @@ function handleTextChange(event) {
         }
 
         if (mode === 'overworld') {
-            ox = coords[1];
-            oy = coords[2];
-            oz = coords[3];
+            ox = Math.round(coords[1]);
+            oy = Math.round(coords[2]);
+            oz = Math.round(coords[3]);
 
             nx = Math.round(ox / 8);
             ny = oy;
@@ -41,10 +49,10 @@ function handleTextChange(event) {
         }
 
 
-            document.getElementById('overworldt').innerText = `x=${ox} y=${oy} z=${oz}`;
-            document.getElementById('nethert').innerText = `x=${nx} y=${ny} z=${nz}`;
-            document.getElementById('omap').src = `https://maps.schnism.net/#overworld:${ox}:${oy}:${oz}:200:0:0:0:1:flat`;
-            document.getElementById('nmap').src = `https://maps.schnism.net/#nether:${nx}:${ny}:${nz}:200:0:0:0:1:flat`;
+        document.getElementById('overworldt').innerText = `x=${ox} y=${oy} z=${oz}`;
+        document.getElementById('nethert').innerText = `x=${nx} y=${ny} z=${nz}`;
+        document.getElementById('omap').src = `https://maps.schnism.net/#overworld:${ox}:${oy}:${oz}:200:0:0:0:1:flat`;
+        document.getElementById('nmap').src = `https://maps.schnism.net/#nether:${nx}:${ny}:${nz}:200:0:0:0:1:flat`;
 
 
     } catch (e) {
