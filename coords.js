@@ -1,6 +1,39 @@
 // /home/kf/mcmap/main.js
 // define a change handler that reads the value of a text input
 
+
+function overtonether() {
+
+    let newover = document.getElementById('omap').contentWindow.location.href;
+    oldover = newover;
+    coords = newover.split(':');
+    zoom = coords[5];
+    document.getElementById('overworld').value = `${coords[2]} ${coords[3]} ${coords[4]}`;
+    handleTextChange({ target: { id: 'overworld', value: document.getElementById('overworld').value } });
+
+
+
+}
+
+
+function nethertoover() {
+    let newnether = document.getElementById('nmap').contentWindow.location.href;
+    oldnether = newnether;
+    coords = newnether.split(':');
+    zoom = coords[5];
+    document.getElementById('nether').value = `${coords[2]} ${coords[3]} ${coords[4]}`;
+    handleTextChange({ target: { id: 'nether', value: document.getElementById('nether').value } });
+
+}
+
+
+var zoom = 200;
+
+
+
+
+
+
 function handleTextChange(event) {
     const value = event?.target?.value ?? '';
     const mode = event.target.id;
@@ -14,7 +47,7 @@ function handleTextChange(event) {
             coords = value.match(/([-\.\d]+)[^-\.\d]+([-\.\d]+)/);
             coords[3] = coords[2];
             coords[2] = 64;
-            
+
         }
 
 
@@ -49,15 +82,18 @@ function handleTextChange(event) {
         }
 
 
-        document.getElementById('overworldt').innerText = `x=${ox} y=${oy} z=${oz}`;
-        document.getElementById('nethert').innerText = `x=${nx} y=${ny} z=${nz}`;
-        document.getElementById('omap').src = `https://maps.schnism.net/#overworld:${ox}:${oy}:${oz}:200:0:0:0:1:flat`;
-        document.getElementById('nmap').src = `https://maps.schnism.net/#nether:${nx}:${ny}:${nz}:200:0:0:0:1:flat`;
+        document.getElementById('omap').src = `https://maps.schnism.net/#overworld:${ox}:${oy}:${oz}:${zoom}:0:0:0:1:flat`;
+        document.getElementById('nmap').src = `https://maps.schnism.net/#nether:${nx}:${ny}:${nz}:${zoom}:0:0:0:1:flat`
+
+        console.log(`Overworld: x=${ox} y=${oy} z=${oz}`);
+        console.log(`Nether: x=${nx} y=${ny} z=${nz}`);
+        console.log(document.getElementById('omap').src);
+
+
 
 
     } catch (e) {
-        document.getElementById('overworldt').innerText = ``;
-        document.getElementById('nethert').innerText = ``;
+        console.error('Error parsing coordinates:', e);
     }
 
 
